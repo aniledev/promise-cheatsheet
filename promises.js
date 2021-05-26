@@ -33,3 +33,20 @@ console.log(orderSunglasses); // [Function: orderSunglasses] ; logs the function
 console.log(orderPromise); // Promise { "Sunglasses order processed!" } ; logs the actual promise
 
 // create a new promise with a reject and resolve logic
+let prom = new Promise((resolve, reject) => {
+  let num = Math.random();
+  if (num < 0.5) {
+    resolve("Yay!");
+  } else {
+    reject("Ohhhh nooooo!");
+  }
+});
+
+const handleSuccess = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+const handleFailure = (rejectedReason) => {
+  console.log(rejectedReason);
+};
+
+prom.then(handleSuccess, handleFailure);
