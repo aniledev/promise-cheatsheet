@@ -73,3 +73,12 @@ const failureHandler = (rejectedReason) => {
 };
 
 promiseWithCatch.then(successHandler).catch(failureHandler);
+
+// here is an example of chaining promises
+firstPromiseFunction()
+  .then((firstResolvedVal) => {
+    return secondPromiseFunction(firstResolvedVal);
+  })
+  .then((secondResolvedVal) => {
+    console.log(secondResolvedVal);
+  });
