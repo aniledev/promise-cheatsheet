@@ -26,8 +26,10 @@ const executor = (resolve, reject) => {
 };
 
 const orderSunglasses = () => {
-  return new Promise(executor); // this returns a new promise; not the resolved value of the promise
+  return new Promise(executor);
 };
-const orderPromise = orderSunglasses(); // this variable saves the resolved value of the promise
-console.log(orderSunglasses); // [Function: orderSunglasses]
-console.log(orderPromise); // Promise { "Sunglasses order processed!" }
+const orderPromise = orderSunglasses();
+console.log(orderSunglasses); // [Function: orderSunglasses] ; logs the function itself
+console.log(orderPromise); // Promise { "Sunglasses order processed!" } ; logs the actual promise
+
+// create a new promise with a reject and resolve logic
