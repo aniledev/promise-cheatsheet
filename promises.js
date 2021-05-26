@@ -50,3 +50,26 @@ const handleFailure = (rejectedReason) => {
 };
 
 prom.then(handleSuccess, handleFailure);
+
+/* 
+If no appropriate handler is provided, then() method will return a promise the same settled value as the promsie it was called on.
+This allows us to separate our concerns of success and failure by chaining promises;
+*/
+
+let promiseWithCatch = new Promise((resolve, reject) => {
+  let num = Math.random();
+  if (num < 0.5) {
+    resolve("Yay!");
+  } else {
+    reject("Ohhhh nooooo!");
+  }
+});
+
+const successHandler = (resolvedValue) => {
+  console.log(resolvedValue);
+};
+const failureHandler = (rejectedReason) => {
+  console.log(rejectedReason);
+};
+
+promiseWithCatch.then(successHandler).catch(failureHandler);
