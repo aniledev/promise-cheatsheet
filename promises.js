@@ -103,3 +103,10 @@ myPromises // promise resolves to an array of values
   .catch((rejectionReason) => {
     console.log(rejectionReason);
   });
+
+// promises using async/await
+async function asynchronousFunction() {
+  let firstSentence = await promiseOne();
+  let secondSentence = await promiseTwo();
+  console.log(firstSentence, secondSentence);
+}
