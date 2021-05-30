@@ -82,3 +82,24 @@ firstPromiseFunction()
   .then((secondResolvedVal) => {
     console.log(secondResolvedVal);
   });
+
+/* 
+Promise.all() allows us to use concurrency, which is essentially multiple async functions happening together.
+Promise.all() accepts an array of promises at its argument and returns a single promise.
+If every promise in the argument array resolves, the promise returned will resolve with an array of all the resolves values. 
+If a single promise in the array rejects, the resolve value will be the rejection reason. If
+*/
+
+let myPromises = Promise.all([
+  returnsPromiseOne(),
+  returnsPromiseTwo(),
+  returnsPromiseThree(),
+]);
+
+myPromises // promise resolves to an array of values
+  .then((arrayOfValues) => {
+    console.log(arrayOfValues);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
